@@ -5,9 +5,61 @@
 
 /* Common styles or utilities*/
 body{
+    margin: 0;
     font-family: 'Poppins', sans-serif;
     background-color: #F3F1FF;
 }
+
+
+/* Navigation start  */
+
+header{
+    background-color: #562eff;
+    display: flex;
+    justify-content: center;
+}
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    width: 925px;
+}
+
+.navbar-left, .navbar-right{
+    display: flex;
+    align-items: center;
+}
+
+.fa-lightbulb, .nav-logo-title{
+    color: white;
+
+}
+
+.nav-logo i{
+    padding-right: 16px;
+    font-size: 24px;
+}
+.nav-logo-title{
+    font-family: poppins;
+    font-size: 24px;
+}
+
+.navbar-right .nav-items a{
+    text-decoration: none;
+    color: white;
+    padding-right: 36px;
+    font-family: poppins;
+}
+
+
+.navbar-right img{
+    padding-top: 8px;
+}
+
+
+.nav-items a:hover{
+    color: wheat;
+}
+
 
 main{
     display: flex;
@@ -48,7 +100,7 @@ main{
     align-items: center;
 }
 
-.player img{
+.player img, .leader-profile img{
 height: 56px;
 width: 56px;
 }
@@ -136,20 +188,116 @@ hr{
     color: #aeaeae;
 }
 
+/* mobile menu style  */
+
+.mobile-menu, .menu-items ul li{
+    display: none;
+}
+
+
+/* Footer Style  */
+
+footer{
+    background-color: #562eff;
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+footer p{
+    color: white;
+
+}
+
+
 
 /* Media Queries */
 
-/* Mobile Devices */
-
 @media only screen and (max-width: 688px) {
+
+    header{
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .nav-items{
+        display: none;
+    }
+
+    .leader-profile img{
+        padding-right: 35px;
+    }
+
+    #check{
+        display: none;
+    }
+
+    .mobile-menu{
+        display: block;
+        padding: 0px;
+        background-color: white;
+        margin-top: 22px;
+    }
+
+ input:checked ~ .menu-items ul li{
+        display: block;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    input:checked ~ label i{
+        transform: rotate(90deg);
+        transition: 1s;
+    }
+
+    input:not(:checked) ~ label i{
+        transform: rotate(180deg);
+        transition: 1s;
+    }
+
+    #menu-icon{
+    position: absolute;
+    top: 18px;
+    left: 342px;
+    color: white;
+    font-size: 25px;
+    }
+
+    .menu-items ul{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-left: 0;
+    margin-bottom: 0px;
+    
+
+    }
+
+    .menu-items ul li a{
+        text-decoration: none;
+        color: black;
+    }
+
+
+    /* mobile nav style end  */
 
     .container{
         width: 100%;
         padding-left: 0;
         padding-right: 0;
     }
+
+    .section-title{
+        padding-left: 15px;
+        padding-top: 15px;
+    }
+
     .players, .blogs, .courses{
         grid-template-columns: repeat(1, 1fr);
+    }
+
+    .blogs{
+        padding: 0 10px;
     }
 
     .courses{
@@ -160,14 +308,27 @@ hr{
     .player{
         flex-direction: column;
     }
+
+
+
 }
 
 /* tablet devices */
 
 @media only screen and (min-width: 688px) and (max-width: 992px){
 
+    .section-title{
+        padding-left: 15px;
+        padding-top: 15px;
+    }
+
+    header{
+        padding: 0px 17px;
+    } 
+
     .container{
         width: 100%;
+        padding: 0;
     }
 
      .players, .blogs, .courses{
@@ -178,9 +339,19 @@ hr{
         flex-direction: column;
     }
 
+    .blogs{
+        padding: 0 10px;
+    }
+
     .courses{
         justify-items: center;
         grid-gap: 30px;
     }
+
+    #mobile-menu{
+        display: none;
+    }
+
+    
 
 }
